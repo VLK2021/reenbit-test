@@ -1,0 +1,15 @@
+.characters{
+    width: 100%;
+}
+
+.characters-error{
+
+}
+
+.characters-block{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+}
