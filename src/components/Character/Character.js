@@ -5,7 +5,8 @@ import './CharacterStyle.css';
 
 
 const Character = ({result}) => {
-    const {id, name} = result;
+    const {id, name, species} = result;
+
 
     return (
         <div className={'character'}>
@@ -16,7 +17,8 @@ const Character = ({result}) => {
                 </div>
 
                 <div className={'character-info'}>
-                    {name}
+                    <p className={'character-info-name'}>{name}</p>
+                    <p className={'character-info-species'}>{species}</p>
                 </div>
             </NavLink>
 

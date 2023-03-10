@@ -5,7 +5,7 @@ import './FormStyle.css';
 
 
 const Form = () => {
-    const {register, handleSubmit, watch, reset, formState:{errors, isValid}} = useForm();
+    const {register, handleSubmit, watch, reset, formState:{errors}} = useForm({mode:'onBlur'});
 
 
     const submit = (data) => {
@@ -15,7 +15,9 @@ const Form = () => {
     return (
         <div className={'form'}>
             <form onSubmit={handleSubmit(submit)}>
-                <input type="text" {...register('search')}/>
+                <input type="text" {...register('search', {
+                    required: 'Поле повинне бути заповнене!'
+                })}/>
             </form>
         </div>
     );

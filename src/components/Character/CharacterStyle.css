@@ -1,3 +1,23 @@
 .character {
     width: 23%;
+    box-shadow: var(--box-shadow-ch);
+}
+
+.character-img {
+
+}
+
+.character-info {
+    padding: 1rem;
+}
+
+.character-info > .character-info-name {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--var-color-text-titles);
+}
+
+.character-info > .character-info-species {
+    font-weight: 500;
+    color: var(--var-color-text);
 }

@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import './CharactersStyle.css';
 import {getAllCharacters} from "../../store/slices/character.slice";
 import Character from "../Character/Character";
+import image from "../../images/rickAndMorty.png";
+import Form from "../Form/Form";
 
 
 const Characters = () => {
@@ -21,8 +23,16 @@ const Characters = () => {
         <div className={'characters'}>
             <div className={'characters-error'}>
                 {
-                    error && <h1>error</h1>
+                    error && <h1>{error}</h1>
                 }
+            </div>
+
+            <div className={'layout-title'}>
+                <img src={image} alt="title"/>
+            </div>
+
+            <div className={'layout-form'}>
+                <Form/>
             </div>
 
             <div className={'characters-block'}>

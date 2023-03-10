@@ -2,8 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-style: normal;
+}
+
+:root {
+    --var-color-text-titles: #081F32;
+    --var-color-text: #6E798C;
+    --var-c-single-information: #8E8E93;
+    --var-c-button: #000000;
+    --box-shadow-ch: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
 }
 
 a {
     text-decoration: none;
+    color: var(--var-color-text-titles);
 }
