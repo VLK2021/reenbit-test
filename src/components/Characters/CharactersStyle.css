@@ -8,8 +8,13 @@
 }
 
 .layout-title {
+    width: 100%;
     text-align: center;
     margin-bottom: 3rem;
+}
+
+.layout-title > img{
+    width: 40%;
 }
 
 .layout-form {
@@ -23,4 +28,9 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     justify-content: space-between;
+}
+
+.characters-pagination{
+    width: 100%;
+    text-align: center;
 }

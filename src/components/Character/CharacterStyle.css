@@ -4,7 +4,11 @@
 }
 
 .character-img {
+    width: 100%;
+}
 
+.character-img > img {
+    width: 100%;
 }
 
 .character-info {

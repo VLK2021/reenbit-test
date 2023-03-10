@@ -1,8 +1,17 @@
-.form{
+.form {
     width: 100%;
+    position: relative;
 }
 
-input{
+input {
     width: 99.5%;
-    padding: 0.5rem;
+    padding: 0.5rem 3rem;
+    border-radius: 0.4rem;
+}
+
+.search-icon {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+
 }

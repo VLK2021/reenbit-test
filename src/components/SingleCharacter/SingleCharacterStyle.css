@@ -9,6 +9,7 @@
     cursor: pointer;
     margin-bottom: 2rem;
     color: var(--var-c-button);
+    background: #FFFFFF;
 }
 
 .icon {
