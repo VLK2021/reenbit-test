@@ -6,16 +6,19 @@ import {getAllCharacters} from "../../store/slices/character.slice";
 import Character from "../Character/Character";
 import image from "../../images/rickAndMorty.png";
 import Form from "../Form/Form";
+import Pagination from "../Pagination/Pagination";
 
 
 const Characters = () => {
     const dispatch = useDispatch();
-    const {info, characters: {results}, status, error} = useSelector(store => store.characters);
+    const {info, characters: {results}, error} = useSelector(store => store.characters);
     console.log(results);
+
+    const page=1;
 
 
     useEffect(() => {
-        dispatch(getAllCharacters());
+        dispatch(getAllCharacters({page}));
     }, []);
 
 
@@ -42,6 +45,10 @@ const Characters = () => {
                         .sort((a, b) => a.name > b.name ? 1 : -1)
                         .map(result => <Character key={result.id} result={result}/>)
                 }
+            </div>
+
+            <div className={'characters-pagination'}>
+                <Pagination info={info}/>
             </div>
         </div>
     );

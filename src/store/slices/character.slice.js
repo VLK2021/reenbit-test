@@ -5,9 +5,9 @@ import {characterService} from "../../services/character.service";
 
 export const getAllCharacters = createAsyncThunk(
     'characterSlice/getAllCharacters',
-    async (_, {rejectWithValue}) => {
+    async ({page}, {rejectWithValue}) => {
         try {
-            const charactersArr = await characterService.getAll();
+            const charactersArr = await characterService.getAll(page);
             return charactersArr;
         } catch (e) {
             return rejectWithValue(e.message);

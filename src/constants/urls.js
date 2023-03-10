@@ -1,4 +1,4 @@
 export const urls = {
-    characters: `/character`,
+    characters: (page) => `/character?page=${page}`,
     singleCharacter: (id) => `/character/${id}`
 }

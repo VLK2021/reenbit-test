@@ -1,0 +1,71 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+}
+
+.pagination-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--var-bg-color);
+    font-weight: bold;
+    height: 3.5rem;
+    width: 3.5rem;
+    border: none;
+    border-radius: 2.5rem;
+    margin: 0.5rem;
+}
+
+.pagination-btn:hover {
+    cursor: pointer;
+    color: var(--var-bg-color);
+    background: var(--var-bg-btn-blockStar-h1);
+}
+
+.pagination-Button:hover {
+    cursor: pointer;
+    color: var(--var-bg-color);
+    background: var(--var-bg-btn-blockStar-h1);
+}
+
+.AiOutline:hover {
+    fill: white;
+}
+
+.AiOutlineDouble:hover {
+    fill: white;
+}
+
+.doubleArrow {
+    width: 3rem;
+    height: 3rem;
+}
+
+.pagination-pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+    background: var(--var-bg-color);
+    margin: 0.3rem;
+    border-radius: 1rem;
+    color: black;
+    font-weight: bold;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 1), 0 5px 20px rgba(0, 0, 0, .5),
+    inset 0 0 15px rgba(0, 0, 0, .2);
+}
+
+.active-page {
+    background: var(--var-bg-btn-blockStar-h1);
+    color: var(--var-bg-color);
+    cursor: pointer;
+}
+
+.pagination-pages:hover {
+    cursor: pointer;
+    color: var(--var-bg-color);
+    background: var(--var-bg-btn-blockStar-h1);
+}
