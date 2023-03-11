@@ -11,6 +11,7 @@ const Form = () => {
     const {register, handleSubmit} = useForm();
     const dispatch = useDispatch();
 
+
     const submit = (data) => {
         dispatch(filterCharacters(data.search));
     }

@@ -34,16 +34,8 @@ const Characters = () => {
             </div>
 
             <div className={'characters-block'}>
-
                 {
-                    charactersFilter.length && charactersFilter
-                        .slice()
-                        .sort((a, b) => a.name > b.name ? 1 : -1)
-                        .map(result => <Character key={result.id} result={result}/>)
-                }
-
-                {
-                    !charactersFilter.length  && results
+                    results && results
                         .slice()
                         .sort((a, b) => a.name > b.name ? 1 : -1)
                         .map(result => <Character key={result.id} result={result}/>)

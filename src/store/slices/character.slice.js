@@ -29,7 +29,7 @@ const characterSlice = createSlice({
 
     reducers: {
         filterCharacters: (state, action) => {
-            state.charactersFilter = state.characters.results.filter(char =>
+                state.characters.results = state.characters.results.filter(char =>
                 char.name.toLowerCase().includes(action.payload));
         }
     },
