@@ -5,22 +5,10 @@ import {characterService} from "../../services/character.service";
 
 export const getAllCharacters = createAsyncThunk(
     'characterSlice/getAllCharacters',
-    async ({page}, {rejectWithValue}) => {
+    async (_, {rejectWithValue}) => {
         try {
-            const charactersArr = await characterService.getAll(page);
+            const charactersArr = await characterService.getAll();
             return charactersArr;
-        } catch (e) {
-            return rejectWithValue(e.message);
-        }
-    }
-);
-
-export const getSearchCharacters = createAsyncThunk(
-    'characterSlice/getSearchCharacters',
-    async ({word, page}, {rejectWithValue}) => {
-        try {
-            const searchCharactersA = await characterService.getSearch(word, page);
-            return searchCharactersA;
         } catch (e) {
             return rejectWithValue(e.message);
         }
@@ -29,10 +17,9 @@ export const getSearchCharacters = createAsyncThunk(
 
 const initialState = {
     characters: [],
+    charactersFilter: [],
     status: "",
     error: null,
-    info: {},
-    word: ''
 }
 
 
@@ -41,8 +28,9 @@ const characterSlice = createSlice({
     initialState,
 
     reducers: {
-        addWord: (state, action) => {
-            state.word = action.payload
+        filterCharacters: (state, action) => {
+            state.charactersFilter = state.characters.results.filter(char =>
+                char.name.toLowerCase().includes(action.payload));
         }
     },
 
@@ -51,28 +39,13 @@ const characterSlice = createSlice({
             state.status = 'Loading...'
             state.error = null
         },
-        [getSearchCharacters.pending]: (state, action) => {
-            state.status = 'Loading...'
-            state.error = null
-        },
-
 
         [getAllCharacters.fulfilled]: (state, action) => {
             state.status = "fulfilled"
             state.characters = action.payload
-            state.info = action.payload.info
-        },
-        [getSearchCharacters.fulfilled]: (state, action) => {
-            state.status = "fulfilled"
-            state.characters = action.payload
-            state.info = action.payload.info
         },
 
         [getAllCharacters.rejected]: (state, action) => {
-            state.status = 'rejected'
-            state.error = action.payload
-        },
-        [getSearchCharacters.rejected]: (state, action) => {
             state.status = 'rejected'
             state.error = action.payload
         },
@@ -81,4 +54,4 @@ const characterSlice = createSlice({
 
 const characterReducer = characterSlice.reducer;
 export default characterReducer;
-export const {addWord} = characterSlice.actions;
+export const {filterCharacters} = characterSlice.actions;

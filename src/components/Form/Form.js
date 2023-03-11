@@ -4,27 +4,23 @@ import {BsSearch} from "@react-icons/all-files/bs/BsSearch";
 
 import './FormStyle.css';
 import {useDispatch} from "react-redux";
-import {addWord, getSearchCharacters} from "../../store/slices/character.slice";
+import {filterCharacters} from "../../store/slices/character.slice";
 
 
 const Form = () => {
-    const {register, handleSubmit, reset, formState: {errors}} = useForm({mode: 'onBlur'});
+    const {register, handleSubmit} = useForm();
     const dispatch = useDispatch();
-    const page = 1;
 
-    const submit = (date) => {
-        const word = date.search;
-        dispatch(getSearchCharacters({word, page}));
-        dispatch(addWord(word));
+    const submit = (data) => {
+        dispatch(filterCharacters(data.search));
     }
+
 
     return (
         <div className={'form'}>
             <form onSubmit={handleSubmit(submit)}>
                 <BsSearch className={'search-icon'}/>
-                <input type="text" placeholder={'Filter by name...'} {...register('search', {
-                    required: 'Поле повинне бути заповнене!'
-                })}/>
+                <input type="text" placeholder={'Filter by name...'} {...register('search')}/>
             </form>
         </div>
     );
