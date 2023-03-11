@@ -10,11 +10,15 @@ import Form from "../Form/Form";
 
 const Characters = () => {
     const dispatch = useDispatch();
-    const {characters: {results}, error, charactersFilter} = useSelector(store => store.characters);
+    let {characters: {results}, error, charactersFilter} = useSelector(store => store.characters);
 
     useEffect(() => {
         dispatch(getAllCharacters());
     }, []);
+
+    if (charactersFilter?.length > 0) {
+        results = charactersFilter
+    }
 
 
     return (

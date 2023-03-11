@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {BsSearch} from "@react-icons/all-files/bs/BsSearch";
+import {useDispatch} from "react-redux";
+import {useSearchParams} from "react-router-dom";
 
 import './FormStyle.css';
-import {useDispatch} from "react-redux";
 import {filterCharacters} from "../../store/slices/character.slice";
 
 
@@ -11,9 +12,17 @@ const Form = () => {
     const {register, handleSubmit} = useForm();
     const dispatch = useDispatch();
 
+    const [query, setQuery] = useSearchParams();
+
+
+    useEffect(() => {
+        const name = query.get('name');
+        dispatch(filterCharacters(name))
+    }, [query]);
+
 
     const submit = (data) => {
-        dispatch(filterCharacters(data.search));
+        setQuery({name: data.search})
     }
 
 

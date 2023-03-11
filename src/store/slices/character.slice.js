@@ -29,8 +29,16 @@ const characterSlice = createSlice({
 
     reducers: {
         filterCharacters: (state, action) => {
-                state.characters.results = state.characters.results.filter(char =>
-                char.name.toLowerCase().includes(action.payload));
+            const name = action.payload?.toLowerCase();
+            if (name) {
+                state.charactersFilter = state.characters.results.filter(
+                    (character) => {
+                        return character.name.toLowerCase().includes(name)
+                    }
+                );
+            } else {
+                state.charactersFilter = state.characters.results;
+            }
         }
     },
 
