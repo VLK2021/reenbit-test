@@ -31,7 +31,7 @@ const characterSlice = createSlice({
         filterCharacters: (state, action) => {
             const name = action.payload?.toLowerCase();
             if (name) {
-                state.charactersFilter = state.characters.results.filter(
+                state.charactersFilter = state.characters.results?.filter(
                     (character) => {
                         return character.name.toLowerCase().includes(name)
                     }

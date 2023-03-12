@@ -9,28 +9,28 @@ import {filterCharacters} from "../../store/slices/character.slice";
 
 
 const Form = () => {
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, setValue} = useForm();
     const dispatch = useDispatch();
 
     const [query, setQuery] = useSearchParams();
 
-
     useEffect(() => {
         const name = query.get('name');
         dispatch(filterCharacters(name))
+        setValue('search', name);
     }, [query]);
 
 
     const submit = (data) => {
-        setQuery({name: data.search})
+        setQuery({name: data.search});
     }
 
 
     return (
         <div className={'form'}>
-            <form onSubmit={handleSubmit(submit)}>
+            <form onChange={handleSubmit(submit)}>
                 <BsSearch className={'search-icon'}/>
-                <input type="text" placeholder={'Filter by name...'} {...register('search')}/>
+                <input type="text" defaultValue={''} placeholder={'Filter by name...'} {...register('search')}/>
             </form>
         </div>
     );

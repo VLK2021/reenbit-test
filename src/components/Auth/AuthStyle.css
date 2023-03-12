@@ -1,0 +1,27 @@
+.btn {
+    width: 12rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    margin: 1rem 0 0.5rem 4rem;
+    background: grey;
+    color: snow;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.btn:hover {
+    background: lawngreen;
+    color: black;
+    transform: scale(1.01, 1.01);
+}
+
+.userName {
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+    margin: 1.5rem 0 0 3rem;
+    text-decoration: underline;
+}
+
